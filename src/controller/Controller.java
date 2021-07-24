@@ -15,6 +15,9 @@ public class Controller {
 
     public void saveToFile() {
         Teacher teacher = new Teacher();
+        boolean Saved = false;
+        File file = new File(filePath);
+        file.setWritable(true);
         System.out.print("Teacher ID: ");
         String id = input.nextLine();
         teacher.setId(id);
@@ -32,11 +35,15 @@ public class Controller {
         try {
             FileWriter fw = new FileWriter(filePath, true);
             fw.write(teacher + "\r\n");
+            Saved = true;
             fw.close();
         } catch (Exception e) {
             System.out.println("Save failed!");
         }
-        System.out.println("Save success!");
+        if(Saved){
+            System.out.println("Save success!");
+        }
+        file.setReadOnly();
     }
 
     public void readFile() {
