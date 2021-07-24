@@ -70,7 +70,7 @@ public class Controller {
             }
             return Integer.compare(o2.getValue().getNumberOfCakes(), o1.getValue().getNumberOfCakes());
         });
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 3 && i < list.size(); i++) {
             System.out.println(list.get(i).getValue().toStringForSort());
         }
     }
